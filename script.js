@@ -1,6 +1,6 @@
-// Simple data structure to hold attendee data (you might expand this later)
 let attendees = {}; 
 let totalConnections = 0; 
+let checkInCount = 0; 
 
 function checkIn() {
     const username = document.getElementById('usernameInput').value;
@@ -15,6 +15,9 @@ function checkIn() {
                 attendees[username] = following.map(user => user.login); 
                 resultsDiv.innerHTML = `<h2>You are following ${following.length} users</h2>`;
                 calculateConnections(attendees); 
+
+                checkInCount++;  
+                updateCheckInCountDisplay(); 
             })
             .catch(error => {
                 resultsDiv.innerHTML = "Error: User not found or API issue";
@@ -43,3 +46,12 @@ function updateResults() {
     const resultsDiv = document.getElementById('results');
     resultsDiv.innerHTML += `<p>Total Connections Found: ${totalConnections / 2}</p>`;
 }
+
+function updateCheckInCountDisplay() {
+    const countDisplay = document.getElementById('checkInCount');
+    countDisplay.innerHTML = `Checked-in: ${checkInCount}`;
+}
+
+document.getElementById('checkInCountBtn').addEventListener('click', () => {
+    updateCheckInCountDisplay();
+});
