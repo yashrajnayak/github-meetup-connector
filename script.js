@@ -33,7 +33,10 @@ function calculateConnections(attendeesData) {
     for (const attendee in attendeesData) {
         const followingList = attendeesData[attendee];
         for (const followedUser of followingList) {
+            console.log("Checking if", attendee, "follows", followedUser); 
+
             if (attendeesData[followedUser] && attendeesData[followedUser].includes(attendee)) {
+                console.log("Connection found!") 
                 totalConnections++;
             }
         }
