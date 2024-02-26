@@ -41,3 +41,17 @@ button {
 @media (max-width: 600px) {
     /* Add adjustments for smaller screens if needed */
 }
+
+#checkInCountBtn {
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#checkInCount {
+    margin-top: 10px;
+}
